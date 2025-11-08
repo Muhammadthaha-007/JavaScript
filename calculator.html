@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            background-color: #faf8f8;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align-content: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        header{
+            width: 90vw;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+        }
+        #header{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+            padding: 5px;
+            margin: 5px;
+            color: #1F1F1F;
+            border-radius: 10px;
+            width: 100%;
+            letter-spacing: 20px;
+            font-size: x-large;
+        }
+        main{
+            width: 90vw;
+            height: 70vh;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+            border-radius: 10px;
+        }
+        #displayinput{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+            width: 70%;
+            padding: 5px;
+            margin: 0px;
+        }
+        #display{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            justify-items: center;
+            width: 70%;
+            padding: 5px;
+            margin: 0px;
+        }
+        input{
+            color: #00FFB3;
+            border: 2px solid rgb(205, 243, 147);
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: xx-large;
+        }
+        #main{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            grid-column-gap: 15%;
+            background-color: gray;
+            border-radius: 10px;
+            padding: 0px;
+            margin: 10px;
+            position: relative;
+            width: 50%;
+            height: 70%;
+            justify-items: center;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+        }
+        button{
+            display: flex;
+            width: auto;
+            padding: 2px;
+            background-color: transparent;
+            border: transparent;
+            border-bottom: #FAF3E0 5px solid;
+            width: 30px;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;
+            font-size: larger;
+        }
+        button:hover{
+            border-bottom:  #1F1F1F 5px solid;
+            color: #FAF3E0;
+            cursor: pointer;
+        }
+        footer{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            align-content: center;
+        }
+        #footer{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            align-content: center;
+            color: antiquewhite;
+            font-style: italic;
+            font-size: x-small;
+            padding: 10px;
+            margin: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration-line: underline;
+        }
+        #footer:hover{
+            text-decoration-line: overline;
+            color: cadetblue;
+            cursor: progress;
+        }
+        #darkMood{
+            border-bottom: #3b3a3a 5px solid;
+            width: 50px;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;
+        }
+        #darkMood:hover{
+            border-bottom: #faf8f8 5px solid;
+        }
+    </style>
+    <script>
+        function darckMood(){
+            document.getElementById('body').style.backgroundColor = "#1F1F1F";
+            document.getElementById('header').style.color = "#faf8f8";
+        }
+        function whiteMood(){
+            document.getElementById('body').style.backgroundColor = "#faf8f8";
+            document.getElementById('header').style.color = "#1F1F1F";
+        }
+        function upend(value){
+            document.getElementById('displayinput').value += value;
+        }
+        function clearDisplay(value){
+            document.getElementById('displayinput').value = "";
+        }
+        function calculate(value){
+            try {
+                document.getElementById('displayinput').value = eval(document.getElementById('displayinput').value);
+            }catch (e) {
+                document.getElementById('displayinput').value = "Invalid Expression";
+            }
+        }
+        function deleteLast(value){
+            let display = document.getElementById('displayinput');
+            display.value = display.value.slice(0,-1);
+        }
+        function ClearLast(value){
+            let display = document.getElementById('displayinput');
+            display.value = display.value = display.value.length -1;
+        }
+    </script>
+</head>
+<body id="body">
+    <header>
+        <div id="header">
+            <p>CALCULATOR</p>
+        </div>
+    </header>
+    <main>
+        <div id="display">
+            <input type="text" class="display" id="displayinput" disabled>
+        </div>
+        <div id="main">
+            <button id="keys" onclick="upend('%')">%</button>
+            <button id="keys" onclick="clearDisplay()">C</button>
+            <button id="keys" onclick="ClearLast()">CE</button>
+            <button id="keys" onclick="deleteLast()">DEL</button>
+            <button id="keys" onclick="upend('1')">1</button>
+            <button id="keys" onclick="upend('2')">2</button>
+            <button id="keys" onclick="upend('3')">3</button>
+            <button id="keys" onclick="upend('/')">/</button>
+            <button id="keys" onclick="upend('4')">4</button>
+            <button id="keys" onclick="upend('5')">5</button>
+            <button id="keys" onclick="upend('6')">6</button>
+            <button id="keys" onclick="upend('*')">*</button>
+            <button id="keys" onclick="upend('7')">7</button>
+            <button id="keys" onclick="upend('8')">8</button>
+            <button id="keys" onclick="upend('9')">9</button>
+            <button id="keys" onclick="upend('+')">+</button>
+            <button id="keys" onclick="upend('.')">.</button>
+            <button id="keys" onclick="upend('0')">0</button>
+            <button id="keys" onclick="upend('-')">-</button>
+            <button id="keys" onclick="calculate()">=</button>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <button id="darkMood" onclick="whiteMood()">
+            </button>
+        </div>
+        <div id="footer">
+            <p>
+                DEV : Muhammad Thaha T
+            </p>
+        </div>
+        <div>
+            <button id="darkMood" onclick="darckMood()">
+            </button>
+        </div>
+    </footer>
+</body>
+</html>
